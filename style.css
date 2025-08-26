@@ -105,8 +105,23 @@ body {
     background-repeat: no-repeat;
     object-fit: fill;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+#welcome {
+    font-size: 8rem;
+    font-family: "Alex Brush", cursive;
+    font-weight: 500;
+    font-style: normal;
+    caret-color: transparent;
+    opacity: 0;
+    animation: welcomeAnim 4s ease forwards;
+}
+
+#main-cont {
+    display: none;
 }
 
 .card {
@@ -121,10 +136,17 @@ body {
     animation: pop 0.3s ease;
 }
 
-    @keyframes pop {
-      from { transform: scale(0.8); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+@keyframes pop {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
     }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
 
 .card-img {
@@ -157,37 +179,96 @@ body {
     /* top: 20rem; */
 }
 
-.opt{
+.opt {
     /* position: absolute; */
     top: 16rem;
     display: flex;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
     margin-top: 2rem;
     caret-color: transparent;
 }
 
-.option-line{
+.option-line {
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 1rem;
     z-index: 2;
-    
+
 }
 
-.midline{
+.midline {
     height: 80px;
     width: 2px;
     z-index: 2;
     background: black;
 }
 
-.optionss{
+.optionss {
     font-size: 40px;
-    padding: 40px 30px;
+    height: 100%;
+    width: 45%;
+    /* padding: 40px 30px; */
     border: none;
     outline: none;
 
+}
+
+.opt2 {
+    cursor: not-allowed !important;
+}
+
+.opt3 {
+    width: 100%;
+
+}
+
+
+@keyframes typing {
+    0% {
+        width: 5ch;
+    }
+
+    40% {
+        width: 13ch;
+    }
+
+    60% {
+        width: 13ch;
+    }
+
+    90% {
+        width: 5ch;
+    }
+
+    100% {
+        width: 5ch;
+    }
+}
+
+@keyframes blink-caret {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.madam-ji {
+    position: absolute;
+    top: 6%;
+    left: 49%;
+    height: 80px;
+    color: rgb(154, 0, 26);
+    font-family: "Saira Condensed", sans-serif;
+    font-weight: 500;
+    font-size: 4rem;
+    font-style: normal;
+    border-right: .15em solid rgb(147, 0, 29);
+    white-space: nowrap;
+    overflow: hidden;
+
+    /* Animation */
+    animation: typing 6s steps(15, end) infinite,
+        blink-caret .5s step-end infinite alternate;
 }

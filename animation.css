@@ -26,3 +26,11 @@
     cursor: pointer;
     transform: scale(1.1);
 }
+
+@keyframes welcomeAnim {
+  0%   { opacity: 0; transform: translateY(300px); }
+  20%  { opacity: 1; transform: translateY(0); }   /* fade in & settle */
+  70%  { opacity: 1; transform: translateY(-10px);}/* slight upward */
+  100% { opacity: 0; transform: translateY(-300px);}/* fade out & move up */
+}
+

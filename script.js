@@ -63,4 +63,7 @@ function restart(){
     showcard(1);
 }
 
-// window.onload = () => showcard(1);
+setTimeout(() => {
+  document.getElementById("welcome").style.display = "none";
+  document.getElementById("main-cont").style.display = "block";
+}, 4000);
