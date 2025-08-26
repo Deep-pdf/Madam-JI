@@ -1,0 +1,28 @@
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}
+.shake {
+    animation: shake 0.5s;
+}
+
+#dob:hover {
+    width: 25rem;   /* expands */
+    height: 3.5rem; /* slightly taller */
+    font-size: 1.05rem; /* a bit larger font */
+    border-color: #ff174d;
+    box-shadow: 0 0 10px rgba(255, 23, 77, 0.5);}
+
+.but:hover {
+    background-color: #ff4569;
+    cursor: pointer;
+    scale: 1.05;
+}
+
+.optionss:hover {
+    background-color: #f08080;
+    color: white;
+    cursor: pointer;
+    transform: scale(1.1);
+}

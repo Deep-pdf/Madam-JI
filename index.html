@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shri Patni ji </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animation.css">
+</head>
+
+<body>
+    <div class="main1">
+        <div class="input-container" id="input-container">
+            <h1 class="age">Enter Your DOB</h1>
+            <input type="date" id="dob">
+            <button class="but" onclick="calculate()">Calculate</button>
+            <div class="glow"></div>
+        </div>
+
+        <div class="output" id="output-container" style="display: none;">
+            <span>
+                <h1 id="resulttext"></h1>
+            </span>
+            <button class="but" onclick="closeoutput()">Ok</button>
+
+        </div>
+    </div>
+
+    <div class="main2">
+
+        <div class="card" id="card1">
+            <img class="card-img" src="Assets/cardd1.png" alt="">
+            <div class="que">WHo are You.. MIne.??</div>
+            <div class="opt">
+                <div class="line"></div>
+                <div class="option-line">
+                    <button onclick="showcard(2)" class="optionss opt1">Girl Friend</button>
+                    <span class="midline"></span>
+                    <button onclick="showcard(3)" class="optionss opt1">Acchi Dost</button>
+
+                </div>
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <div id="card2" class="card">
+            <img class="card-img" src="Assets/cardd1.png" alt="">
+            <div class="que">Acche se Socho.. Kon HO.?</div>
+            <div class="opt">
+                <div class="line"></div>
+                <div class="option-line">
+                    <button class="optionss opt1"></button>
+                    <span class="midline"></span>
+                    <button class="optionss opt1">Acchi Dost</button>
+
+                </div>
+                <div class="line"></div>
+            </div>
+        </div>
+
+
+
+        <script src="script.js"></script>
+</body>
+
+</html>

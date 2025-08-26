@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Alex+Brush&family=Anton&family=Indie+Flower&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karantina:wght@300;400;700&family=Noto+Serif+Dives+Akuru&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.main1 {
+    height: 100vh;
+    width: 100%;
+    background-image: url("Assets/back2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: fill;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* align-items:flex-end; */
+}
+
+.input-container {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    height: clamp(10rem, 45vh, 25rem);
+    width: clamp(20rem, 50vw, 50rem);
+    border-radius: 40px;
+    background: rgba(255, 255, 255, 0.15);
+    /* translucent gradient base */
+    backdrop-filter: blur(15px) saturate(150%);
+    -webkit-backdrop-filter: blur(15px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+
+    background-image: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.3),
+            rgba(255, 255, 255, 0) 70%);
+    background-clip: padding-box;
+    overflow: hidden;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.age {
+    position: relative;
+    font-size: 4.2rem;
+    margin: 0;
+    padding: 0.8rem;
+    font-family: "Saira Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    /* Gradient fill */
+    background: linear-gradient(#f40039, #ff1592);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Shadow BEHIND the text */
+    filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.6));
+    caret-color: transparent;
+
+}
+
+#dob {
+    height: 3rem;
+    width: 22rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.but {
+    height: 3rem;
+    width: 6rem;
+    border-radius: 0.5rem;
+    background-color: #ff174d;
+    color: white;
+    margin: 10px;
+}
+
+
+.glow {
+    position: absolute;
+    top: -200%;
+    left: -200%;
+    width: 600%;
+    height: 600%;
+    background: linear-gradient(45deg,
+            rgba(255, 255, 255, 0) 47%,
+            rgba(255, 255, 255, 0.4) 50%,
+            rgba(255, 255, 255, 0) 53%);
+    pointer-events: none;
+}
+
+.main2 {
+    height: 100vh;
+    width: 100%;
+    background-image: url("Assets/back3.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: fill;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    position: relative;
+    height: 40vh;
+    width: 40vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: none;
+    animation: pop 0.3s ease;
+}
+
+    @keyframes pop {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+
+.card-img {
+    position: absolute;
+    /* height: 100%; */
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.que {
+    /* position: absolute; */
+    z-index: 2;
+    font-family: "Indie Flower", cursive;
+    font-weight: 1000;
+    font-style: normal;
+    font-size: 3rem;
+    caret-color: transparent;
+    margin-top: 6rem;
+}
+
+.line {
+    height: 2px;
+    width: 500px;
+    /* position: absolute; */
+    z-index: 2;
+    background: black;
+    /* top: 20rem; */
+}
+
+.opt{
+    /* position: absolute; */
+    top: 16rem;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    margin-top: 2rem;
+    caret-color: transparent;
+}
+
+.option-line{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    z-index: 2;
+    
+}
+
+.midline{
+    height: 80px;
+    width: 2px;
+    z-index: 2;
+    background: black;
+}
+
+.optionss{
+    font-size: 40px;
+    padding: 40px 30px;
+    border: none;
+    outline: none;
+
+}
