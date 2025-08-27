@@ -1,3 +1,24 @@
+const area = document.getElementById("card7");
+const cursor = document.getElementById("custom-cursor");
+
+// Show Lottie cursor only when inside container
+area.addEventListener("mouseenter", () => {
+    area.classList.add("hide-cursor");
+    cursor.style.display = "block";
+});
+
+// Hide it when leaving container
+area.addEventListener("mouseleave", () => {
+    area.classList.remove("hide-cursor");
+    cursor.style.display = "none";
+});
+
+// Move cursor only inside the area
+area.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.pageX + "px";
+    cursor.style.top = e.pageY + "px";
+});
+
 function calculate() {
     const dobInput = document.getElementById("dob");
     const dobinput = dobInput.value;
@@ -54,16 +75,35 @@ animateGlow();
 
 showcard(1);
 
-function showcard(num){
-    document.querySelectorAll(".card").forEach(d => d.style.display='none');
-    document.getElementById("card" + num).style.display="flex";
+function showcard(num) {
+    document.querySelectorAll(".card").forEach(d => d.style.display = 'none');
+    document.getElementById("card" + num).style.display = "flex";
 }
 
-function restart(){
+function restart() {
     showcard(1);
 }
 
 setTimeout(() => {
-  document.getElementById("welcome").style.display = "none";
-  document.getElementById("main-cont").style.display = "block";
+    document.getElementById("welcome").style.display = "none";
+    document.getElementById("main-cont").style.display = "block";
 }, 4000);
+
+const main1 = document.getElementById("main1");
+const main2 = document.getElementById("main2");
+const card7 = document.getElementById("card7");
+
+// Observe class changes on card7
+const observer = new MutationObserver(() => {
+  if (card7.classList.contains("activee")) {
+    // Only start the timeout when card7 is visible
+    setTimeout(() => {
+      card7.classList.remove("activee");
+      main1.classList.add("activee");
+      cursor.style.display = "none";
+    }, 3000); // you can adjust timing here
+  }
+});
+
+// Start observing card7 for class changes
+observer.observe(card7, { attributes: true, attributeFilter: ["class"] });

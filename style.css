@@ -13,10 +13,14 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     object-fit: fill;
-    position: relative;
+    position: absolute;
     display: flex;
     justify-content: center;
     /* align-items:flex-end; */
+    opacity: 0;
+    top: 0;
+    left: 0;
+    transition: opacity 1s ease;
 }
 
 .input-container {
@@ -108,6 +112,17 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+
+.active {
+    opacity: 1;
+    z-index: 1;
 }
 
 #welcome {
@@ -116,7 +131,7 @@ body {
     font-weight: 500;
     font-style: normal;
     caret-color: transparent;
-    opacity: 0;
+    opacity: 1;
     animation: welcomeAnim 4s ease forwards;
 }
 
@@ -134,6 +149,51 @@ body {
     flex-direction: column;
     display: none;
     animation: pop 0.3s ease;
+    caret-color: transparent;
+}
+
+.card1 {
+    position: relative;
+}
+
+.card1.hide-cursor {
+    cursor: none;
+}
+
+/* Lottie cursor */
+#custom-cursor {
+    position: fixed;
+    width: 300px;
+    height: 150px;
+    pointer-events: none;
+    z-index: 9999;
+    display: none;
+    transform: translate(-50%, -50%);
+    /* center the cursor */
+}
+
+.sign-in {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 3rem;
+    color: rgb(246, 13, 137);
+    position: absolute;
+    top: 35%;
+    left: 5%;
+    caret-color: transparent;
+
+}
+
+.wait {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+    color: rgb(205, 0, 202);
+    position: absolute;
+    top: 90%;
+    left: 32%;
+    caret-color: transparent;
+
 }
 
 @keyframes pop {
@@ -225,38 +285,9 @@ body {
 
 }
 
-
-@keyframes typing {
-    0% {
-        width: 5ch;
-    }
-
-    40% {
-        width: 13ch;
-    }
-
-    60% {
-        width: 13ch;
-    }
-
-    90% {
-        width: 5ch;
-    }
-
-    100% {
-        width: 5ch;
-    }
-}
-
-@keyframes blink-caret {
-    50% {
-        border-color: transparent;
-    }
-}
-
 .madam-ji {
     position: absolute;
-    top: 6%;
+    top: 4%;
     left: 49%;
     height: 80px;
     color: rgb(154, 0, 26);
@@ -271,4 +302,10 @@ body {
     /* Animation */
     animation: typing 6s steps(15, end) infinite,
         blink-caret .5s step-end infinite alternate;
+}
+
+.activee{
+    display: flex;
+    opacity: 1;
+    z-index: 1;
 }
