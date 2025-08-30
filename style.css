@@ -132,7 +132,7 @@ body {
     font-style: normal;
     caret-color: transparent;
     opacity: 1;
-    animation: welcomeAnim 4s ease forwards;
+    /* animation: welcomeAnim 4s ease forwards; */
 }
 
 #main-cont {
@@ -273,6 +273,10 @@ body {
     /* padding: 40px 30px; */
     border: none;
     outline: none;
+      font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 
 }
 

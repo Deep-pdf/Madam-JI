@@ -51,12 +51,14 @@ function calculate() {
     }
 
     document.getElementById("input-container").style.display = "none";
+    document.getElementById("helloo").style.display = "none";
     document.getElementById("resulttext").innerText = message;
     document.getElementById("output-container").style.display = "block";
 }
 
 function closeoutput() {
-    document.getElementById("output-container").style.display = "none";
+    document.getElementById("output-container").style.display = "none"
+    
 }
 
 const glow = document.querySelector(".glow");
@@ -84,10 +86,10 @@ function restart() {
     showcard(1);
 }
 
-setTimeout(() => {
-    document.getElementById("welcome").style.display = "none";
-    document.getElementById("main-cont").style.display = "block";
-}, 4000);
+// setTimeout(() => {
+//     document.getElementById("welcome").style.display = "none";
+//     document.getElementById("main-cont").style.display = "block";
+// }, 4000);
 
 const main1 = document.getElementById("main1");
 const main2 = document.getElementById("main2");
@@ -95,15 +97,54 @@ const card7 = document.getElementById("card7");
 
 // Observe class changes on card7
 const observer = new MutationObserver(() => {
-  if (card7.classList.contains("activee")) {
-    // Only start the timeout when card7 is visible
-    setTimeout(() => {
-      card7.classList.remove("activee");
-      main1.classList.add("activee");
-      cursor.style.display = "none";
-    }, 3000); // you can adjust timing here
-  }
+    if (card7.classList.contains("activee")) {
+        // Only start the timeout when card7 is visible
+        setTimeout(() => {
+            card7.classList.remove("activee");
+            main1.classList.add("activee");
+            cursor.style.display = "none";
+        }, 3000); // you can adjust timing here
+    }
 });
 
 // Start observing card7 for class changes
 observer.observe(card7, { attributes: true, attributeFilter: ["class"] });
+
+
+// Split the welcome text into characters
+const fancyPantsSplit = new SplitType(".welcome", { types: "chars" });
+
+// Create GSAP timeline
+const fancyPantsAni = gsap.timeline({
+  repeat: 0, // only once
+  onComplete: () => {
+    // Hide welcome after animation finishes
+    document.getElementById("welcome").style.display = "none";
+    document.getElementById("main-cont").style.display = "block";
+  }
+});
+
+// Slide up + fade in
+fancyPantsAni.from(fancyPantsSplit.chars, {
+  opacity: 0,
+  yPercent: 105,
+  duration: 1,
+  stagger: { each: 0.05, from: "start" },
+  ease: "power2.out"
+})
+
+// Hold briefly
+.to(fancyPantsSplit.chars, {
+  opacity: 1,
+  yPercent: 0,
+  duration: 1
+})
+
+// Slide up + fade out
+.to(fancyPantsSplit.chars, {
+  opacity: 0,
+  yPercent: -105,
+  duration: 1,
+  stagger: { each: 0.05, from: "end" },
+  ease: "power2.in"
+});

@@ -1,84 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Lottie Cursor Test</title>
-  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slider</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
-    body {
-      margin: 0;
-      height: 100vh;
+    html {
+      scroll-behavior: smooth;
+    }
+
+    main{
+      display: block;
+
+    }
+
+    .trending-slide-img{
+      width: 100%;
       display: flex;
-      align-items: center;
       justify-content: center;
-      background: #222;
-      color: white;
-      font-family: sans-serif;
     }
 
-    /* The container where custom cursor appears */
-    .card {
-      width: 300px;
-      height: 200px;
-      background: #444;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
+    .trending-slide .trending-slide-img img {
+      width: 100%;
+      max-width: 20rem;
+      /* height: 42rem; */
+      object-fit: cover;
+      border-radius: 2rem;
     }
 
-    /* Hide system cursor only when inside */
-    .hide-cursor {
-      cursor: none;
-    }
+    /* .swiper-slide{
+      width: 60%;
+    } */
 
-    /* Custom Lottie cursor */
-    #custom-cursor {
-      position: fixed;
-      width: 300px;
-      height: 200px;
-      pointer-events: none;
-      z-index: 9999;
+    .swiper-slide-shadow-left,
+    .swiper-slide-shadow-right {
       display: none;
-      transform: translate(-50%, -50%); /* center the cursor */
     }
   </style>
 </head>
+
 <body>
+  <div id="trending">
+    <div class="container">
+      <div class="swiper trending-slider">
+        <div class="swiper-wrapper">
 
-  <div class="card" id="card7">
-    Hover inside me
-  </div>
+          <div class="swiper-slide trending-slide">
+            <div class="trending-slide-img">
+              <img src="Assets2/1.jpg" alt="">
+            </div>
+          </div>
 
-  <!-- Custom cursor -->
-  <dotlottie-wc
-    id="custom-cursor"
-    src="https://lottie.host/1d9261fe-11a5-4615-adaa-3adae761d056/FSc5lHmFoS.lottie"
-    autoplay
-    loop>
-  </dotlottie-wc>
+          <div class="swiper-slide trending-slide">
+            <div class="trending-slide-img">
+              <img src="Assets2/2.jpg" alt="">
+            </div>
+          </div>
 
-  <script>
-    const area = document.getElementById("card7");
-    const cursor = document.getElementById("custom-cursor");
+          <div class="swiper-slide trending-slide">
+            <div class="trending-slide-img">
+              <img src="Assets2/3.jpg" alt="">
+            </div>
+          </div>
 
-    // Show Lottie cursor only when inside container
-    area.addEventListener("mouseenter", () => {
-      area.classList.add("hide-cursor");
-      cursor.style.display = "block";
-    });
+          <div class="swiper-slide trending-slide">
+            <div class="trending-slide-img">
+              <img src="Assets2/4.jpg" alt="">
+            </div>
+          </div>
 
-    // Hide it when leaving container
-    area.addEventListener("mouseleave", () => {
-      area.classList.remove("hide-cursor");
-      cursor.style.display = "none";
-    });
+          <div class="swiper-slide trending-slide">
+            <div class="trending-slide-img">
+              <img src="Assets2/5.jpg" alt="">
+            </div>
+          </div>
 
-    // Move cursor only inside the area
-    area.addEventListener("mousemove", (e) => {
-      cursor.style.left = e.pageX + "px";
-      cursor.style.top = e.pageY + "px";
-    });
-  </script>
+          <div class="swiper-slide trending-slide">
+            <div class="trending-slide-img">
+              <img src="Assets2/6.jpg" alt="">
+            </div>
+          </div>
+
+          <div class="swiper-slide trending-slide">
+            <div class="trending-slide-img">
+              <img src="Assets2/7.jpg" alt="">
+            </div>
+          </div>
+
+          <div class="swiper-slide trending-slide">
+            <div class="trending-slide-img">
+              <img src="Assets2/8.jpg" alt="">
+            </div>
+          </div>
+
+          <div class="swiper-slide trending-slide">
+            <div class="trending-slide-img">
+              <img src="Assets2/9.jpg" alt="">
+            </div>
+          </div>
+
+          <div class="swiper-slide trending-slide">
+            <div class="trending-slide-img">
+              <img src="Assets2/10.jpg" alt="">
+            </div>
+          </div>
+
+
+        </div>
+                <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- Navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+      </div>
+
+
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+      <script>
+
+        var trendingSlider = new Swiper(".trending-slider", {
+          effect: "coverflow",
+          grabCursor: true,
+          centeredSlides: true,
+          loop: true,
+          slidesPerView: 4,
+          spaceBetween: 10,
+          coverflowEffect: {
+            rotate: 0,
+            stretch: 0,
+            depth: 100,
+            modifier: 2.5,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          }
+
+        });
+
+      </script>
 </body>
+
 </html>
