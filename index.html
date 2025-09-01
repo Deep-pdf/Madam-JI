@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shri Patni ji </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="animation.css">
@@ -103,19 +104,95 @@
         <div class="input-container" id="input-container">
             <h1 class="age">Enter Your DOB</h1>
             <input type="date" id="dob">
-            <button class="but" onclick="calculate()">Calculate</button>
+            <button class="but" id="but" onclick="calculate()">Calculate</button>
             <div class="glow"></div>
         </div>
 
         <div class="output" id="output-container" style="display: none;">
-            <span>
-                <h1 id="resulttext"></h1>
-            </span>
-            <button class="but" onclick="closeoutput()">Ok</button>
+            <h1 class="result-text1" id="resulttext"></h1>
+            <h1 class="result-text2" id="resulttext2"></h1>
+            <img src="Assets/card5.png" alt="">
+            <button class="but but2" onclick="closeoutput()">Ok</button>
 
         </div>
+        <div id="trending">
+            <div class="container">
+                <div class="swiper trending-slider">
+                    <div class="swiper-wrapper">
 
-        
+                        <div class="swiper-slide trending-slide">
+                            <div class="trending-slide-img">
+                                <img src="Assets2/1.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide trending-slide">
+                            <div class="trending-slide-img">
+                                <img src="Assets2/2.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide trending-slide">
+                            <div class="trending-slide-img">
+                                <img src="Assets2/3.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide trending-slide">
+                            <div class="trending-slide-img">
+                                <img src="Assets2/4.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide trending-slide">
+                            <div class="trending-slide-img">
+                                <img src="Assets2/5.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide trending-slide">
+                            <div class="trending-slide-img">
+                                <img src="Assets2/6.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide trending-slide">
+                            <div class="trending-slide-img">
+                                <img src="Assets2/7.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide trending-slide">
+                            <div class="trending-slide-img">
+                                <img src="Assets2/8.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide trending-slide">
+                            <div class="trending-slide-img">
+                                <img src="Assets2/9.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide trending-slide">
+                            <div class="trending-slide-img">
+                                <img src="Assets2/10.jpg" alt="">
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
+
+                    <!-- Navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
+                </div>
+
+            </div>
+        </div>
 
     </div>
 
@@ -124,11 +201,16 @@
     </dotlottie-wc>
 
 
+     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <!-- SplitType -->
     <script src="https://unpkg.com/split-type"></script>
-    <script src="script.js"></script>
+    <!-- Lottie -->
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
-
+    <!-- Swiper JS (must be before your script) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Your custom JS (last) -->
+    <script src="script.js"></script>
 
 </body>
 

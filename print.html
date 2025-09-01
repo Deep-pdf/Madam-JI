@@ -11,12 +11,7 @@
       scroll-behavior: smooth;
     }
 
-    main{
-      display: block;
-
-    }
-
-    .trending-slide-img{
+    .trending-slide-img {
       width: 100%;
       display: flex;
       justify-content: center;
@@ -109,7 +104,7 @@
 
 
         </div>
-                <!-- Pagination -->
+        <!-- Pagination -->
         <div class="swiper-pagination"></div>
 
         <!-- Navigation buttons -->
@@ -118,35 +113,42 @@
 
       </div>
 
+    </div>
+  </div>
 
-      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-      <script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
 
-        var trendingSlider = new Swiper(".trending-slider", {
-          effect: "coverflow",
-          grabCursor: true,
-          centeredSlides: true,
-          loop: true,
-          slidesPerView: 4,
-          spaceBetween: 10,
-          coverflowEffect: {
-            rotate: 0,
-            stretch: 0,
-            depth: 100,
-            modifier: 2.5,
-          },
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          }
+    var trendingSlider = new Swiper(".trending-slider", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      loop: true,
+      slidesPerView: 4,
+      spaceBetween: 10,
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 100,
+        modifier: 2.5,
+      },
 
-        });
+      autoplay: {
+        delay: 1500,
+        disableOnInteraction: false, // keeps autoplay even after manual swipe
+      },
 
-      </script>
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      }
+    });
+
+  </script>
 </body>
 
 </html>

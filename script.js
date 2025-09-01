@@ -44,21 +44,34 @@ function calculate() {
     const isBirthday = (today.getMonth() == dob.getMonth() && today.getDate() == dob.getDate());
 
     let message = "";
+    let message2 = "";
     if (isBirthday) {
-        message = `🎉 Happy Birthday! 🎂 You are ${age} years old today 🎉`;
+        message = `🎉 Happy Birthday!🎂`;
+        message2 = `You are ${age} years old today 🎉`;
     } else {
-        message = `Your age is: ${age}`;
+        message2 = `Your age is: ${age}`;
     }
 
     document.getElementById("input-container").style.display = "none";
     document.getElementById("helloo").style.display = "none";
     document.getElementById("resulttext").innerText = message;
+    document.getElementById("resulttext2").innerText = message2;
     document.getElementById("output-container").style.display = "block";
 }
 
+const input = document.getElementById("dob");
+const button = document.getElementById("but");
+
+input.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // prevents form submission/reload
+        button.click(); // simulate button press
+    }
+});
+
 function closeoutput() {
     document.getElementById("output-container").style.display = "none"
-    
+
 }
 
 const glow = document.querySelector(".glow");
@@ -116,35 +129,65 @@ const fancyPantsSplit = new SplitType(".welcome", { types: "chars" });
 
 // Create GSAP timeline
 const fancyPantsAni = gsap.timeline({
-  repeat: 0, // only once
-  onComplete: () => {
-    // Hide welcome after animation finishes
-    document.getElementById("welcome").style.display = "none";
-    document.getElementById("main-cont").style.display = "block";
-  }
+    repeat: 0, // only once
+    onComplete: () => {
+        // Hide welcome after animation finishes
+        document.getElementById("welcome").style.display = "none";
+        document.getElementById("main-cont").style.display = "block";
+    }
 });
 
 // Slide up + fade in
 fancyPantsAni.from(fancyPantsSplit.chars, {
-  opacity: 0,
-  yPercent: 105,
-  duration: 1,
-  stagger: { each: 0.05, from: "start" },
-  ease: "power2.out"
+    opacity: 0,
+    yPercent: 105,
+    duration: 1,
+    stagger: { each: 0.05, from: "start" },
+    ease: "power2.out"
 })
 
-// Hold briefly
-.to(fancyPantsSplit.chars, {
-  opacity: 1,
-  yPercent: 0,
-  duration: 1
-})
+    // Hold briefly
+    .to(fancyPantsSplit.chars, {
+        opacity: 1,
+        yPercent: 0,
+        duration: 1
+    })
 
-// Slide up + fade out
-.to(fancyPantsSplit.chars, {
-  opacity: 0,
-  yPercent: -105,
-  duration: 1,
-  stagger: { each: 0.05, from: "end" },
-  ease: "power2.in"
-});
+    // Slide up + fade out
+    .to(fancyPantsSplit.chars, {
+        opacity: 0,
+        yPercent: -105,
+        duration: 1,
+        stagger: { each: 0.05, from: "end" },
+        ease: "power2.in"
+    });
+
+
+var trendingSlider = new Swiper(".trending-slider", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      loop: true,
+      slidesPerView: 4,
+      spaceBetween: 10,
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 100,
+        modifier: 2.5,
+      },
+
+      autoplay: {
+        delay: 1500,
+        disableOnInteraction: false, // keeps autoplay even after manual swipe
+      },
+
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      }
+    });   
