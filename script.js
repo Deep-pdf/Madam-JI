@@ -1,3 +1,5 @@
+
+
 const area = document.getElementById("card7");
 const cursor = document.getElementById("custom-cursor");
 
@@ -191,3 +193,10 @@ var trendingSlider = new Swiper(".trending-slider", {
         prevEl: ".swiper-button-prev",
       }
     });   
+
+fetch("music.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("music").innerHTML = html;
+      })
+      .catch(err => console.error("Error loading component:", err));
