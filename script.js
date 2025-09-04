@@ -273,12 +273,12 @@ const paragraphs = document.querySelectorAll(".paragraph");
 
     nextBtn.addEventListener("click", () => {
       // current paragraph exit
-      paragraphs[current].classList.remove("active");
+      paragraphs[current].classList.remove("active1");
       paragraphs[current].classList.add("exit");
 
       // move to next
       current = (current + 1) % paragraphs.length;
-      paragraphs[current].classList.add("active");
+      paragraphs[current].classList.add("active1");
 
       // reset old one after animation
       setTimeout(() => {
@@ -290,27 +290,11 @@ const paragraphs = document.querySelectorAll(".paragraph");
       }, 600);
     });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const main3 = document.querySelector(".main3");
-    const main4 = document.querySelector(".main4");
-    const letterImg = document.querySelector(".main3 .letter img");
 
-    if (letterImg) {
-        letterImg.addEventListener("click", () => {
-            // Hide main3
-            main3.style.opacity = "0";
-            setTimeout(() => {
-                main3.style.display = "none";
+const letterbtn = document.getElementById("letter");
+const main4 = document.querySelector(".main4");
 
-                // Show main4
-                main4.style.display = "flex";
-                main4.style.opacity = "0";
-
-                setTimeout(() => {
-                    main4.style.transition = "opacity 1s ease";
-                    main4.style.opacity = "1";
-                }, 50);
-            }, 500); // matches fade-out speed
-        });
-    }
+letterbtn.addEventListener("click", () => {
+    main4.style.zIndex = "3";
+    document.body.style.overflow = "auto";
 });
