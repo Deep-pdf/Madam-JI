@@ -263,4 +263,54 @@ function startTimeline() {
             }, { once: true });
         });
     }, 10000);
+
+    
 }
+
+const paragraphs = document.querySelectorAll(".paragraph");
+    const nextBtn = document.getElementById("nextBtn");
+    let current = 0;
+
+    nextBtn.addEventListener("click", () => {
+      // current paragraph exit
+      paragraphs[current].classList.remove("active");
+      paragraphs[current].classList.add("exit");
+
+      // move to next
+      current = (current + 1) % paragraphs.length;
+      paragraphs[current].classList.add("active");
+
+      // reset old one after animation
+      setTimeout(() => {
+        paragraphs.forEach((p, i) => {
+          if (i !== current) {
+            p.classList.remove("exit");
+          }
+        });
+      }, 600);
+    });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const main3 = document.querySelector(".main3");
+    const main4 = document.querySelector(".main4");
+    const letterImg = document.querySelector(".main3 .letter img");
+
+    if (letterImg) {
+        letterImg.addEventListener("click", () => {
+            // Hide main3
+            main3.style.opacity = "0";
+            setTimeout(() => {
+                main3.style.display = "none";
+
+                // Show main4
+                main4.style.display = "flex";
+                main4.style.opacity = "0";
+
+                setTimeout(() => {
+                    main4.style.transition = "opacity 1s ease";
+                    main4.style.opacity = "1";
+                }, 50);
+            }, 500); // matches fade-out speed
+        });
+    }
+});
