@@ -1,4 +1,8 @@
-
+document.addEventListener("click", () => {
+    const music = document.getElementById("bg-music");
+    music.muted = false;   // unmute after first click
+    music.play();
+}, { once: true });
 
 const area = document.getElementById("card7");
 const cursor = document.getElementById("custom-cursor");
@@ -264,31 +268,31 @@ function startTimeline() {
         });
     }, 10000);
 
-    
+
 }
 
 const paragraphs = document.querySelectorAll(".paragraph");
-    const nextBtn = document.getElementById("nextBtn");
-    let current = 0;
+const nextBtn = document.getElementById("nextBtn");
+let current = 0;
 
-    nextBtn.addEventListener("click", () => {
-      // current paragraph exit
-      paragraphs[current].classList.remove("active1");
-      paragraphs[current].classList.add("exit");
+nextBtn.addEventListener("click", () => {
+    // current paragraph exit
+    paragraphs[current].classList.remove("active1");
+    paragraphs[current].classList.add("exit");
 
-      // move to next
-      current = (current + 1) % paragraphs.length;
-      paragraphs[current].classList.add("active1");
+    // move to next
+    current = (current + 1) % paragraphs.length;
+    paragraphs[current].classList.add("active1");
 
-      // reset old one after animation
-      setTimeout(() => {
+    // reset old one after animation
+    setTimeout(() => {
         paragraphs.forEach((p, i) => {
-          if (i !== current) {
-            p.classList.remove("exit");
-          }
+            if (i !== current) {
+                p.classList.remove("exit");
+            }
         });
-      }, 600);
-    });
+    }, 600);
+});
 
 
 const letterbtn = document.getElementById("letter");
