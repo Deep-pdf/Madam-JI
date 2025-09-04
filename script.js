@@ -63,6 +63,7 @@ function calculate() {
 
 const input = document.getElementById("dob");
 const button = document.getElementById("but");
+const trending = document.getElementById("trending");
 
 input.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
@@ -72,7 +73,14 @@ input.addEventListener("keydown", function (event) {
 });
 
 function closeoutput() {
-    document.getElementById("output-container").style.display = "none"
+    document.getElementById("output-container").style.display = "none";
+    document.getElementById("trending").style.display = "none";
+
+    const main3 = document.querySelector(".main3");
+    main3.style.opacity = "1"; // fade in
+    main3.style.zIndex = "2";
+
+    startTimeline(); // trigger the animation
 
 }
 
@@ -166,37 +174,93 @@ fancyPantsAni.from(fancyPantsSplit.chars, {
 
 
 var trendingSlider = new Swiper(".trending-slider", {
-      effect: "coverflow",
-      grabCursor: true,
-      centeredSlides: true,
-      loop: true,
-      slidesPerView: 4,
-      spaceBetween: 10,
-      coverflowEffect: {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    loop: true,
+    slidesPerView: 4,
+    spaceBetween: 10,
+    coverflowEffect: {
         rotate: 0,
         stretch: 0,
         depth: 100,
         modifier: 2.5,
-      },
+    },
 
-      autoplay: {
+    autoplay: {
         delay: 1500,
         disableOnInteraction: false, // keeps autoplay even after manual swipe
-      },
+    },
 
-      pagination: {
+    pagination: {
         el: ".swiper-pagination",
         clickable: true,
-      },
-      navigation: {
+    },
+    navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
-      }
-    });   
+    }
+});
 
 fetch("music.html")
-      .then(res => res.text())
-      .then(html => {
+    .then(res => res.text())
+    .then(html => {
         document.getElementById("music").innerHTML = html;
-      })
-      .catch(err => console.error("Error loading component:", err));
+    })
+    .catch(err => console.error("Error loading component:", err));
+
+function startTimeline() {
+    const line = document.getElementById("linee");
+    const circles = [document.getElementById("c1"), document.getElementById("c2"), document.getElementById("c3")];
+    const photos = [document.getElementById("p1"), document.getElementById("p2"), document.getElementById("p3")];
+    const texts = [document.getElementById("textt1"), document.getElementById("textt2"), document.getElementById("textt3")];
+
+    // reset states (important if re-triggered)
+    line.style.width = "0";
+    circles.forEach(c => c.classList.remove("show"));
+    photos.forEach(p => p.classList.remove("show"));
+    texts.forEach(t => t.classList.remove("show"));
+
+    // circle positions in %
+    const distances = ["0%", "40%", "80%"]; // relative increments for line growth
+
+    // start sequence
+    setTimeout(() => {
+        circles[0].classList.add("show");
+        photos[0].classList.add("show");
+        texts[0].classList.add("show");
+
+        // after 1.2s, grow line to circle2
+        setTimeout(() => {
+            line.style.width = distances[1];
+            setTimeout(() => {
+                circles[1].classList.add("show");
+                photos[1].classList.add("show");
+                texts[1].classList.add("show");
+
+                // after 1.2s, grow line to circle3
+                setTimeout(() => {
+                    line.style.width = distances[2];
+                    setTimeout(() => {
+                        circles[2].classList.add("show");
+                        photos[2].classList.add("show");
+                        texts[2].classList.add("show");
+                    }, 600);
+                }, 1200);
+            }, 600);
+        }, 1200);
+    }, 300);
+
+    setTimeout(() => {
+        document.querySelectorAll(".letter img").forEach(img => {
+            img.classList.add("animate-in");
+
+            // After slideFadeIn finishes, lock it in place
+            img.addEventListener("animationend", () => {
+                img.style.opacity = "1";                 // keep visible
+                img.style.transform = "translateX(0)";   // stay in final place
+                img.classList.remove("animate-in");      // remove so hover won't clash
+            }, { once: true });
+        });
+    }, 10000);
+}
